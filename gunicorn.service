@@ -4,10 +4,10 @@ Requires=gunicorn.socket
 After=network.target
 
 [Service]
-User=root
+User=gbemi
 Group=www-data
-WorkingDirectory=/var/lib/jenkins/workspace/django-cicd/app
-ExecStart=/var/lib/jenkins/workspace/django-cicd/env/bin/gunicorn --workers 3 --log-level debug --error-logfile /var/lib/jenkins/workspace/django-cicd/error.log --bind unix:/run/gunicorn.sock app.wsgi:application
+WorkingDirectory=/usr/share/nginx/html/test_ci_cd/
+ExecStart=/usr/share/nginx/html/test_ci_cd/env/bin/gunicorn --workers 3 --log-level debug --error-logfile /usr/share/nginx/html/test_ci_cd/error.log --bind unix:/run/gunicorn.sock \ --capture-output --log-level debug\ demo.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
