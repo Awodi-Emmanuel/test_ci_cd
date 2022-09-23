@@ -2,7 +2,7 @@
 
 source env/bin/activate
 
-source /usr/share/nginx/html/test_ci_cd/demo
+source /usr/share/nginx/html/test_ci_cd
 
 python3 manage.py makemigrations
 python3 manage.py migrate 
@@ -16,7 +16,7 @@ sudo cp -rf gunicorn.service /etc/systemd/system/
 echo "$USER"
 echo "$PWD"
 
-sudo service daemon-reload
+sudo service restart
 sudo service gunicorn start 
 sudo service gunicorn enable 
 
