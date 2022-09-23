@@ -17,10 +17,10 @@ echo "$USER"
 echo "$PWD"
 
 sudo service daemon-reload
-sudo service gunicorn start
-sudo service gunicorn enable
+sudo systemctl start gunicorn 
+sudo systemctl enable gunicorn 
 
 echo "Gunicorn has been started"
 
-sudo service gunicorn status
-sudo service gunicorn restart 
+sudo systemctl  status gunicorn 
+sudo systemctl restart gunicorn  
